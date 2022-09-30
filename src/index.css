@@ -1,0 +1,54 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.App {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.Week {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 3rem repeat(7, 1fr);
+    gap: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.Week > div {
+    background-color: #fff;
+    text-align: center;
+}
+
+.Week__day-header {
+}
+
+.Week__day-header.selected {
+    background-color: aqua;
+}
+
+.Week__day-header.today {
+    background-color: coral;
+}
+
+.Week__day-field {
+    padding: 1rem;
+}
+
+.Week__hour {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.5);
+}
