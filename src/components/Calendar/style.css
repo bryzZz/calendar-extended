@@ -1,0 +1,31 @@
+.Calendar {
+    display: flex;
+    flex-direction: column;
+}
+
+.Calendar__week-days,
+.Calendar__days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.Calendar__day,
+.Calendar__week-day {
+    text-align: center;
+}
+
+.Calendar__day {
+    color: gray;
+}
+
+.Calendar__day.current-month {
+    color: black;
+}
+
+.Calendar__day.today {
+    color: red;
+}
+
+.Calendar__day.selected {
+    color: lime;
+}
