@@ -5,6 +5,8 @@ import Modal from 'react-modal';
 import type { Tasks } from '../../types';
 import { getArange } from '../../utils/helpers/getArange';
 
+import './style.css';
+
 Modal.setAppElement('#root');
 
 const customStyles = {

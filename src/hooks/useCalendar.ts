@@ -27,11 +27,9 @@ export const useCalendar = (selectedDate: moment.Moment) => {
     }, [currentMonth, selectedDate]);
 
     const incrementMonth = () => {
-        console.log(currentYear);
-
         setCurrentMonth((p) => {
             if (p + 1 > 11) {
-                setCurrentYear((t) => t + 1);
+                setCurrentYear(currentYear + 1);
                 return 0;
             }
             return p + 1;
@@ -41,7 +39,7 @@ export const useCalendar = (selectedDate: moment.Moment) => {
     const decrementMonth = () => {
         setCurrentMonth((p) => {
             if (p - 1 < 0) {
-                setCurrentYear((t) => t - 1);
+                setCurrentYear(currentYear - 1);
                 return 11;
             }
             return p - 1;

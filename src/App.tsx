@@ -1,6 +1,7 @@
 import moment from 'moment';
 import React, { useState } from 'react';
 
+import { Header } from './components/Header/Header';
 import { Sidebar } from './components/Sidebar/Sidebar';
 import { Week } from './components/Week/Week';
 
@@ -13,6 +14,7 @@ export const App: React.FC<AppProps> = () => {
 
     return (
         <div className='App'>
+            <Header />
             <Sidebar selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
             <Week selectedDate={selectedDate} />
         </div>

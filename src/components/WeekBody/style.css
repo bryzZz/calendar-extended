@@ -1,0 +1,61 @@
+.WeekBody {
+    display: grid;
+    grid-template-columns: 3rem repeat(7, 1fr);
+    gap: 1px;
+    /* border-right: 1px solid rgba(0, 0, 0, 0.2); */
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.2); */
+    background-color: var(--color-border);
+    max-height: 100%;
+    overflow-y: scroll;
+}
+
+.WeekBody::-webkit-scrollbar {
+    width: 12px;
+}
+/* .WeekBody::-webkit-scrollbar-button {
+    background: #ccc;
+}
+*/
+.WeekBody::-webkit-scrollbar-track-piece {
+    background: var(--color-background);
+}
+.WeekBody::-webkit-scrollbar-thumb {
+    background: var(--color-text);
+}
+
+.WeekBody__days,
+.WeekBody__hours {
+    display: grid;
+    grid-template-rows: repeat(23, 1fr);
+}
+
+.WeekBody__days {
+    gap: 1px;
+    background-color: var(--color-border);
+}
+
+.WeekBody__cell {
+    min-height: 3rem;
+    background-color: var(--color-background);
+}
+
+.WeekBody__hour {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: relative;
+    padding-right: 5px;
+    background-color: var(--color-background);
+    color: var(--color-text-hint);
+}
+
+.WeekBody__hour::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: -1px;
+    height: 1px;
+    width: 1rem;
+    background-color: var(--color-border);
+}

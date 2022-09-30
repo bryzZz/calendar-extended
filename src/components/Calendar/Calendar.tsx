@@ -20,8 +20,12 @@ export const Calendar: React.FC<CalendarProps> = ({ selectedDate, setSelectedDat
                 <div className='Calendar__current-date'>
                     {moment.months()[currentMonth]} {currentYear}
                 </div>
-                <button onClick={decrementMonth}>{'<'}</button>
-                <button onClick={incrementMonth}>{'>'}</button>
+                <button className='Calendar__button' onClick={decrementMonth}>
+                    {'<'}
+                </button>
+                <button className='Calendar__button' onClick={incrementMonth}>
+                    {'>'}
+                </button>
             </div>
             <div className='Calendar__week-days'>
                 {weekdaysShort.map((weekDay) => (

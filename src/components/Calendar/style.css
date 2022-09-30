@@ -1,12 +1,48 @@
 .Calendar {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: calc(7 * 2rem);
+    margin: 0 auto;
+    padding-top: 2rem;
 }
 
+.Calendar__header,
 .Calendar__week-days,
 .Calendar__days {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(7, 2rem);
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.Calendar__header {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.Calendar__week-days {
+    margin-bottom: 0.3rem;
+}
+
+.Calendar__current-date {
+    grid-column: span 5;
+    padding-left: 0.3rem;
+}
+
+.Calendar__button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    height: 2rem;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    color: var(--color-text-hint);
+    cursor: pointer;
+}
+
+.Calendar__button:hover {
+    background-color: var(--color-border);
 }
 
 .Calendar__day,
@@ -14,18 +50,30 @@
     text-align: center;
 }
 
+.Calendar__week-day {
+    color: var(--color-text-hint);
+}
+
 .Calendar__day {
-    color: gray;
+    height: 2rem;
+    padding-top: 0.4rem;
+    color: var(--color-text-hint);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.Calendar__day:hover {
+    background-color: var(--color-border);
 }
 
 .Calendar__day.current-month {
-    color: black;
+    color: var(--color-text);
 }
 
 .Calendar__day.today {
-    color: red;
+    background-color: var(--color-primary);
 }
 
 .Calendar__day.selected {
-    color: lime;
+    background-color: var(--color-primary-alt);
 }

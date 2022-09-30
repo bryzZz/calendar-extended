@@ -1,6 +1,8 @@
 import moment, { Moment } from 'moment';
 import React from 'react';
 
+import './style.css';
+
 interface WeekHeaderProps {
     selectedDate: Moment;
     weekDays: Moment[];
@@ -24,10 +26,8 @@ export const WeekHeader: React.FC<WeekHeaderProps> = ({ weekDays, selectedDate }
                         ].join(' ')}
                         key={i}
                     >
-                        <h3>
-                            <span>{weekDayShort}</span>
-                            <span>{day.date()}</span>
-                        </h3>
+                        <span>{weekDayShort}</span>
+                        <span>{day.date()}</span>
                     </div>
                 );
             })}

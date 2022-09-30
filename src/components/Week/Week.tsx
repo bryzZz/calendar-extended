@@ -3,9 +3,10 @@ import React, { useState } from 'react';
 
 import type { Tasks } from '../../types';
 import { getWeekDays } from '../../utils/helpers/date/getWeekDays';
+import { WeekBody } from '../WeekBody/WeekBody';
+import { WeekHeader } from '../WeekHeader/WeekHeader';
 
-import { WeekBody } from './WeekBody';
-import { WeekHeader } from './WeekHeader';
+import './style.css';
 
 interface WeekProps {
     selectedDate: Moment;
