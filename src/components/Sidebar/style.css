@@ -1,15 +1,10 @@
 .Sidebar {
-    /* position: relative; */
-    /* left: -100%; */
     width: 0;
     max-width: 300px;
-    /* transform: translateX(-100%); */
-    transition: all 0.3s ease-in-out;
     padding-top: 2rem;
+    transition: all 0.3s ease-in-out;
 }
 
 .Sidebar.expended {
-    /* left: 0; */
-    /* transform: translateX(0); */
     width: 100%;
 }

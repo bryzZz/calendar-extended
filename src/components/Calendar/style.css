@@ -43,14 +43,23 @@
     cursor: pointer;
 }
 
-.Sidebar.expended .Calendar__button:first-of-type > svg {
-    /* rotate: 180deg; */
-    /* position: relative; */
-    /* transform: scale(0.6) rotate(180deg) translateX(3px); */
+.Calendar__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.Sidebar.expended .Calendar__button:last-of-type > svg {
-    /* transform: scale(0.6) translateX(3px); */
+.Calendar__button:first-of-type {
+    padding-right: 2px;
+}
+
+.Calendar__button:last-of-type {
+    padding-left: 2px;
+}
+
+.Calendar__button > svg {
+    width: 60%;
+    height: 60%;
 }
 
 .Calendar__button > svg {
@@ -86,10 +95,10 @@
     color: var(--color-text);
 }
 
-.Calendar__day.today {
-    background-color: var(--color-primary);
-}
-
 .Calendar__day.selected {
     background-color: var(--color-primary-alt);
+}
+
+.Calendar__day.today {
+    background-color: var(--color-primary);
 }
