@@ -1,8 +1,10 @@
 .Calendar {
+    --cell-size: 2rem;
+
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: calc(7 * 2rem);
+    max-width: calc(7 * var(--cell-size) + 6 * 0.3rem);
     margin: 0 auto;
     padding-top: 2rem;
 }
@@ -11,7 +13,8 @@
 .Calendar__week-days,
 .Calendar__days {
     display: grid;
-    grid-template-columns: repeat(7, 2rem);
+    grid-template-columns: repeat(7, var(--cell-size));
+    gap: 0.3rem;
     align-items: center;
     font-size: 0.8rem;
 }
@@ -26,19 +29,35 @@
 }
 
 .Calendar__current-date {
+    font-size: 1.1rem;
+    font-weight: 500;
     grid-column: span 5;
-    padding-left: 0.3rem;
+    padding-left: 0.15rem;
 }
 
 .Calendar__button {
-    background-color: transparent;
-    outline: none;
-    border: none;
-    height: 2rem;
+    position: relative;
+    height: var(--cell-size);
     border-radius: 50%;
     font-size: 1.2rem;
     color: var(--color-text-hint);
     cursor: pointer;
+}
+
+.Calendar__button:first-of-type > svg {
+    left: -4%;
+    transform: translateY(-50%) scale(0.6) rotate(180deg);
+}
+
+.Calendar__button:last-of-type > svg {
+    right: -4%;
+}
+
+.Calendar__button > svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scale(0.6);
+    fill: currentColor;
 }
 
 .Calendar__button:hover {
@@ -55,7 +74,7 @@
 }
 
 .Calendar__day {
-    height: 2rem;
+    height: var(--cell-size);
     padding-top: 0.4rem;
     color: var(--color-text-hint);
     border-radius: 50%;

@@ -55,7 +55,7 @@ export const WeekBody: React.FC<WeekBodyProps> = ({ weekDays, tasks, onAddTask }
     return (
         <div className='WeekBody'>
             <div className='WeekBody__hours'>
-                {getArange(23).map((hour, i) => (
+                {getArange(24).map((hour, i) => (
                     <div className='WeekBody__hour' key={i}>
                         {hour}
                     </div>
@@ -64,7 +64,7 @@ export const WeekBody: React.FC<WeekBodyProps> = ({ weekDays, tasks, onAddTask }
 
             {weekDays.map((day, i) => (
                 <div key={i} className='WeekBody__days'>
-                    {getArange(23).map((hour, i) => {
+                    {getArange(24).map((hour, i) => {
                         const hourTasks = tasks.find(
                             (task) => task.date.isSame(day) && task.hour === hour
                         );

@@ -1,16 +1,13 @@
 .WeekBody {
     display: grid;
     grid-template-columns: 3rem repeat(7, 1fr);
-    gap: 1px;
-    /* border-right: 1px solid rgba(0, 0, 0, 0.2); */
-    /* border-bottom: 1px solid rgba(0, 0, 0, 0.2); */
-    background-color: var(--color-border);
+    padding-bottom: 5rem;
     max-height: 100%;
     overflow-y: scroll;
 }
 
 .WeekBody::-webkit-scrollbar {
-    width: 12px;
+    width: var(--scroll-bar-width);
 }
 /* .WeekBody::-webkit-scrollbar-button {
     background: #ccc;
@@ -26,17 +23,21 @@
 .WeekBody__days,
 .WeekBody__hours {
     display: grid;
-    grid-template-rows: repeat(23, 1fr);
+    grid-template-rows: repeat(24, 1fr);
 }
 
 .WeekBody__days {
-    gap: 1px;
+    border-left: 1px solid var(--color-border);
     background-color: var(--color-border);
 }
 
 .WeekBody__cell {
     min-height: 3rem;
     background-color: var(--color-background);
+}
+
+.WeekBody__cell {
+    border-bottom: 1px solid var(--color-border);
 }
 
 .WeekBody__hour {
@@ -54,7 +55,7 @@
     display: block;
     position: absolute;
     right: 0;
-    top: -1px;
+    bottom: 0;
     height: 1px;
     width: 1rem;
     background-color: var(--color-border);
