@@ -11,8 +11,8 @@
     --color-text-hint: #bebebe;
     --color-border: #5c5c5c;
     --color-background: #1f1f1f;
-    --color-primary: #303f9f;
-    --color-primary-alt: #515fb8;
+    --color-primary: #e10000;
+    --color-primary-alt: #e1000070;
 
     --scroll-bar-width: 12px;
 }
@@ -24,7 +24,20 @@ body {
 }
 
 .App {
-    display: grid;
-    grid-template-columns: 1fr 6fr;
     height: 100vh;
+}
+
+.main {
+    display: flex;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.logo__icon {
+    transform: scale(1.5);
 }

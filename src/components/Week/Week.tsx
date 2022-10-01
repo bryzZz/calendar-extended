@@ -1,9 +1,6 @@
-import { Moment } from 'moment';
-import React, { useState } from 'react';
+import { observer } from 'mobx-react-lite';
+import React from 'react';
 
-import { useAppContext } from '../../context';
-import type { Tasks } from '../../types';
-import { getWeekDays } from '../../utils/helpers/date/getWeekDays';
 import { WeekBody } from '../WeekBody/WeekBody';
 import { WeekHeader } from '../WeekHeader/WeekHeader';
 
@@ -11,20 +8,11 @@ import './style.css';
 
 interface WeekProps {}
 
-export const Week: React.FC<WeekProps> = () => {
-    const { selectedDate } = useAppContext();
-    const [tasks, setTasks] = useState<Tasks>([]);
-
-    const handleAddTask = (day: Moment, hour: number, text: string) => {
-        setTasks((p) => p.concat({ date: day, hour, tasks: [{ text }] }));
-    };
-
-    const weekDays = getWeekDays(selectedDate);
-
+export const Week: React.FC<WeekProps> = observer(() => {
     return (
         <div className='Week'>
-            <WeekHeader weekDays={weekDays} selectedDate={selectedDate} />
-            <WeekBody weekDays={weekDays} tasks={tasks} onAddTask={handleAddTask} />
+            <WeekHeader />
+            <WeekBody />
         </div>
     );
-};
+});

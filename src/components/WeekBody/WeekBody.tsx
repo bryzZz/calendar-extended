@@ -1,8 +1,9 @@
-import moment, { Moment } from 'moment';
+import { observer } from 'mobx-react-lite';
+import { Moment } from 'moment';
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 
-import type { Tasks } from '../../types';
+import { calendar } from '../../store/Calendar';
 import { getArange } from '../../utils/helpers/getArange';
 
 import './style.css';
@@ -20,13 +21,9 @@ const customStyles = {
     }
 };
 
-interface WeekBodyProps {
-    weekDays: Moment[];
-    tasks: Tasks;
-    onAddTask: (day: Moment, hour: number, text: string) => void;
-}
+interface WeekBodyProps {}
 
-export const WeekBody: React.FC<WeekBodyProps> = ({ weekDays, tasks, onAddTask }) => {
+export const WeekBody: React.FC<WeekBodyProps> = observer(() => {
     const [taskText, setTaskText] = useState<string>('');
     const [isOpen, setIsOpen] = useState(false);
     const [selectedDay, setSelectedDay] = useState<Moment>();
@@ -41,7 +38,8 @@ export const WeekBody: React.FC<WeekBodyProps> = ({ weekDays, tasks, onAddTask }
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (selectedDay && selectedHour) onAddTask(selectedDay, selectedHour, taskText);
+        if (selectedDay && selectedHour)
+            calendar.handleAddTask(selectedDay, selectedHour, taskText);
 
         setTaskText('');
         setIsOpen(false);
@@ -62,10 +60,10 @@ export const WeekBody: React.FC<WeekBodyProps> = ({ weekDays, tasks, onAddTask }
                 ))}
             </div>
 
-            {weekDays.map((day, i) => (
+            {calendar.currentWeekDays.map((day, i) => (
                 <div key={i} className='WeekBody__days'>
                     {getArange(24).map((hour, i) => {
-                        const hourTasks = tasks.find(
+                        const hourTasks = calendar.tasks.find(
                             (task) => task.date.isSame(day) && task.hour === hour
                         );
 
@@ -100,4 +98,4 @@ export const WeekBody: React.FC<WeekBodyProps> = ({ weekDays, tasks, onAddTask }
             </Modal>
         </div>
     );
-};
+});

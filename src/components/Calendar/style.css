@@ -6,7 +6,7 @@
     width: 100%;
     max-width: calc(7 * var(--cell-size) + 6 * 0.3rem);
     margin: 0 auto;
-    padding-top: 2rem;
+    display: block;
 }
 
 .Calendar__header,
@@ -36,7 +36,6 @@
 }
 
 .Calendar__button {
-    position: relative;
     height: var(--cell-size);
     border-radius: 50%;
     font-size: 1.2rem;
@@ -44,19 +43,17 @@
     cursor: pointer;
 }
 
-.Calendar__button:first-of-type > svg {
-    left: -4%;
-    transform: translateY(-50%) scale(0.6) rotate(180deg);
+.Sidebar.expended .Calendar__button:first-of-type > svg {
+    /* rotate: 180deg; */
+    /* position: relative; */
+    /* transform: scale(0.6) rotate(180deg) translateX(3px); */
 }
 
-.Calendar__button:last-of-type > svg {
-    right: -4%;
+.Sidebar.expended .Calendar__button:last-of-type > svg {
+    /* transform: scale(0.6) translateX(3px); */
 }
 
 .Calendar__button > svg {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%) scale(0.6);
     fill: currentColor;
 }
 

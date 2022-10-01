@@ -1,13 +1,16 @@
-import moment from 'moment';
 import React from 'react';
 
 import { Calendar } from '../Calendar/Calendar';
 
-interface SidebarProps {}
+import './style.css';
 
-export const Sidebar: React.FC<SidebarProps> = () => {
+interface SidebarProps {
+    isExpended: boolean;
+}
+
+export const Sidebar: React.FC<SidebarProps> = ({ isExpended }) => {
     return (
-        <aside className='Sidebar'>
+        <aside className={['Sidebar', isExpended ? 'expended' : ''].join(' ')}>
             <Calendar />
         </aside>
     );

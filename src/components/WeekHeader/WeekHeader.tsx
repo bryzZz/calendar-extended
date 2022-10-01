@@ -1,21 +1,21 @@
-import moment, { Moment } from 'moment';
+import { observer } from 'mobx-react-lite';
+import moment from 'moment';
 import React from 'react';
+
+import { calendar } from '../../store/Calendar';
 
 import './style.css';
 
-interface WeekHeaderProps {
-    selectedDate: Moment;
-    weekDays: Moment[];
-}
+interface WeekHeaderProps {}
 
-export const WeekHeader: React.FC<WeekHeaderProps> = ({ weekDays, selectedDate }) => {
+export const WeekHeader: React.FC<WeekHeaderProps> = observer(() => {
     return (
         <div className='WeekHeader'>
             <div className='WeekHeader__timezone'>UTC + {moment().utcOffset() / 60}</div>
-            {weekDays.map((day, i) => {
+            {calendar.currentWeekDays.map((day, i) => {
                 const weekDayShort = moment.weekdaysShort()[day.day()];
                 const isToday = day.date() === moment().date();
-                const isSelectedDate = day.date() === selectedDate.date();
+                const isSelectedDate = day.date() === calendar.selectedDate.date();
 
                 return (
                     <div
@@ -33,4 +33,4 @@ export const WeekHeader: React.FC<WeekHeaderProps> = ({ weekDays, selectedDate }
             })}
         </div>
     );
-};
+});
