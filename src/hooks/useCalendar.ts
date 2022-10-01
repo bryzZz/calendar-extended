@@ -1,12 +1,13 @@
-import moment from 'moment';
+import moment, { Moment } from 'moment';
 import { useMemo, useState } from 'react';
 
+import { useAppContext } from '../context';
 import { getArange } from '../utils/helpers/getArange';
 
-export const useCalendar = (selectedDate: moment.Moment) => {
+export const useCalendar = () => {
+    const { selectedDate, setSelectedDate } = useAppContext();
     const [currentMonth, setCurrentMonth] = useState(moment().month());
     const [currentYear, setCurrentYear] = useState(moment().year());
-    // const [currentDay, setCurrentDay] = useState(moment().date());
 
     const days = useMemo(() => {
         const instance = moment([currentYear, currentMonth]);
@@ -46,7 +47,23 @@ export const useCalendar = (selectedDate: moment.Moment) => {
         });
     };
 
+    const handleDayClick = (day: Moment) => {
+        if (!selectedDate.isSame(day, 'month')) {
+            setCurrentMonth(day.month());
+            setCurrentYear(day.year());
+        }
+        setSelectedDate(day);
+    };
+
     const weekdaysShort = moment.weekdaysShort(true);
 
-    return { days, weekdaysShort, currentMonth, currentYear, incrementMonth, decrementMonth };
+    return {
+        days,
+        weekdaysShort,
+        currentMonth,
+        currentYear,
+        incrementMonth,
+        decrementMonth,
+        handleDayClick
+    };
 };

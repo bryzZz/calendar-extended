@@ -5,14 +5,18 @@ import { useCalendar } from '../../hooks/useCalendar';
 
 import './style.css';
 
-interface CalendarProps {
-    selectedDate: moment.Moment;
-    setSelectedDate: (date: moment.Moment) => void;
-}
+interface CalendarProps {}
 
-export const Calendar: React.FC<CalendarProps> = ({ selectedDate, setSelectedDate }) => {
-    const { days, weekdaysShort, currentMonth, currentYear, decrementMonth, incrementMonth } =
-        useCalendar(selectedDate);
+export const Calendar: React.FC<CalendarProps> = () => {
+    const {
+        days,
+        weekdaysShort,
+        currentMonth,
+        currentYear,
+        decrementMonth,
+        incrementMonth,
+        handleDayClick
+    } = useCalendar();
 
     return (
         <div className='Calendar'>
@@ -48,7 +52,7 @@ export const Calendar: React.FC<CalendarProps> = ({ selectedDate, setSelectedDat
                             isSelectedDay ? 'selected' : '',
                             isToday ? 'today' : ''
                         ].join(' ')}
-                        onClick={() => setSelectedDate(day)}
+                        onClick={() => handleDayClick(day)}
                         aria-hidden
                     >
                         {date}

@@ -1,6 +1,7 @@
 import { Moment } from 'moment';
 import React, { useState } from 'react';
 
+import { useAppContext } from '../../context';
 import type { Tasks } from '../../types';
 import { getWeekDays } from '../../utils/helpers/date/getWeekDays';
 import { WeekBody } from '../WeekBody/WeekBody';
@@ -8,11 +9,10 @@ import { WeekHeader } from '../WeekHeader/WeekHeader';
 
 import './style.css';
 
-interface WeekProps {
-    selectedDate: Moment;
-}
+interface WeekProps {}
 
-export const Week: React.FC<WeekProps> = ({ selectedDate }) => {
+export const Week: React.FC<WeekProps> = () => {
+    const { selectedDate } = useAppContext();
     const [tasks, setTasks] = useState<Tasks>([]);
 
     const handleAddTask = (day: Moment, hour: number, text: string) => {

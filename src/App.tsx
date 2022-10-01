@@ -4,19 +4,22 @@ import React, { useState } from 'react';
 import { Header } from './components/Header/Header';
 import { Sidebar } from './components/Sidebar/Sidebar';
 import { Week } from './components/Week/Week';
+import { AppContextProvider } from './context';
 
 interface AppProps {}
 
 moment.updateLocale('en', { week: { dow: 1 } });
 
 export const App: React.FC<AppProps> = () => {
-    const [selectedDate, setSelectedDate] = useState(moment().subtract(1, 'day'));
+    const [selectedDate, setSelectedDate] = useState(moment());
 
     return (
-        <div className='App'>
-            <Header />
-            <Sidebar selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
-            <Week selectedDate={selectedDate} />
-        </div>
+        <AppContextProvider value={{ selectedDate, setSelectedDate }}>
+            <div className='App'>
+                <Header />
+                <Sidebar />
+                <Week />
+            </div>
+        </AppContextProvider>
     );
 };

@@ -3,15 +3,12 @@ import React from 'react';
 
 import { Calendar } from '../Calendar/Calendar';
 
-interface SidebarProps {
-    selectedDate: moment.Moment;
-    setSelectedDate: (date: moment.Moment) => void;
-}
+interface SidebarProps {}
 
-export const Sidebar: React.FC<SidebarProps> = ({ selectedDate, setSelectedDate }) => {
+export const Sidebar: React.FC<SidebarProps> = () => {
     return (
         <aside className='Sidebar'>
-            <Calendar selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
+            <Calendar />
         </aside>
     );
 };
