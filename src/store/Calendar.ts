@@ -1,16 +1,14 @@
+/* eslint-disable @typescript-eslint/lines-between-class-members */
 import { makeAutoObservable } from 'mobx';
 import moment from 'moment';
 
-import { Tasks } from '../types';
 import { getArange } from '../utils/helpers/getArange';
 
+moment.updateLocale('en', { week: { dow: 1 } });
+
 class Calendar {
-    tasks: Tasks = [];
-
     selectedDate = moment();
-
     currentYear = this.selectedDate.year();
-
     currentMonth = this.selectedDate.month();
 
     constructor() {
@@ -19,10 +17,6 @@ class Calendar {
 
     setSelectedDate(date: moment.Moment) {
         this.selectedDate = date;
-    }
-
-    handleAddTask(day: moment.Moment, hour: number, text: string) {
-        // setTasks((p) => p.concat({ date: day, hour, tasks: [{ text }] }));
     }
 
     incrementMonth = () => {

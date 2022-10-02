@@ -1,15 +1,8 @@
-import moment from 'moment';
 import React, { useState } from 'react';
 
-import { Header } from './components/Header/Header';
-import { Sidebar } from './components/Sidebar/Sidebar';
-import { Week } from './components/Week/Week';
+import { Header, Sidebar, Week } from './components';
 
-interface AppProps {}
-
-moment.updateLocale('en', { week: { dow: 1 } });
-
-export const App: React.FC<AppProps> = () => {
+export const App: React.FC = () => {
     const [isSidebarExpended, setIsSidebarExpended] = useState(true);
 
     return (
