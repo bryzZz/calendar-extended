@@ -1,8 +1,8 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 
-import { WeekBody } from '../WeekBody/WeekBody';
-import { WeekHeader } from '../WeekHeader/WeekHeader';
+import { WeekBody } from '../../components/WeekBody/WeekBody';
+import { WeekHeader } from '../../components/WeekHeader/WeekHeader';
 
 import './style.css';
 

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import './style.css';
 
@@ -7,6 +8,21 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ onClickBurgerMenu }) => {
+    const selectRef = useRef<HTMLSelectElement>(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const handleChangeSelect = (e: Event) => {
+            navigate((e.target as HTMLSelectElement).value);
+        };
+
+        selectRef.current?.addEventListener('change', handleChangeSelect);
+
+        return () => {
+            selectRef.current?.removeEventListener('change', handleChangeSelect);
+        };
+    }, []);
+
     return (
         <header className='Header'>
             <button className='burger' onClick={() => onClickBurgerMenu((p) => !p)}>
@@ -89,6 +105,10 @@ export const Header: React.FC<HeaderProps> = ({ onClickBurgerMenu }) => {
                 </svg>
                 <span>Calendar</span>
             </div>
+            <select ref={selectRef}>
+                <option value='week'>Week</option>
+                <option value='month'>Month</option>
+            </select>
         </header>
     );
 };
