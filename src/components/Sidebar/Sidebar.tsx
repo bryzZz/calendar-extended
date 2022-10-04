@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Calendar } from '../Calendar/Calendar';
 
-import './style.css';
+import './style.scss';
 
 interface SidebarProps {
     isExpended: boolean;

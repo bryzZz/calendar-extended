@@ -4,7 +4,7 @@ import React from 'react';
 
 import { calendar } from '../../store/Calendar';
 
-import './style.css';
+import './style.scss';
 
 interface CalendarProps {}
 
@@ -31,7 +31,7 @@ export const Calendar: React.FC<CalendarProps> = observer(() => {
             <div className='Calendar__week-days'>
                 {weekdaysShort.map((weekDay) => (
                     <div key={weekDay} className='Calendar__week-day'>
-                        {weekDay}
+                        <span>{weekDay}</span>
                     </div>
                 ))}
             </div>
@@ -49,7 +49,7 @@ export const Calendar: React.FC<CalendarProps> = observer(() => {
                             onClick={() => calendar.handleDayClick(day)}
                             aria-hidden
                         >
-                            {date}
+                            <span>{date}</span>
                         </div>
                     )
                 )}

@@ -52,7 +52,7 @@ class Calendar {
     get days() {
         const instance = moment([this.currentYear, this.currentMonth]);
 
-        const startDate = instance.startOf('month').subtract(instance.weekday() - 1, 'day');
+        const startDate = instance.startOf('month').subtract(instance.weekday(), 'day');
 
         return getArange(42).map((n) => {
             const day = moment(startDate).add(n, 'day');

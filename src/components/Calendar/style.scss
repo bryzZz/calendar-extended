@@ -1,0 +1,107 @@
+.Calendar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+
+    width: 100%;
+
+    &__header,
+    &__week-days,
+    &__days {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        align-items: center;
+        gap: 0.3rem;
+
+        font-size: 0.8rem;
+    }
+
+    &__header {
+        font-size: 1rem;
+        /* margin-bottom: 0.5rem; */
+    }
+
+    &__week-days {
+        /* margin-bottom: 0.3rem; */
+    }
+
+    &__current-date {
+        font-size: 1.1rem;
+        font-weight: 500;
+        grid-column: span 5;
+        padding-left: 0.15rem;
+    }
+
+    &__button {
+        position: relative;
+        padding-top: 100%;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        color: var(--color-text-hint);
+        cursor: pointer;
+
+        &:first-of-type > svg {
+            padding-right: 2px;
+            transform: translate(-53%, -50%);
+        }
+
+        &:last-of-type > svg {
+            padding-left: 2px;
+            transform: translate(-47%, -50%);
+        }
+
+        & > svg {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            fill: currentColor;
+            width: 60%;
+            height: 60%;
+        }
+
+        &:hover {
+            background-color: var(--color-border);
+        }
+    }
+
+    &__day,
+    &__week-day {
+        position: relative;
+        text-align: center;
+        padding-top: 100%;
+
+        & > span {
+            position: absolute;
+            inset: 0;
+            padding-top: 48%;
+            line-height: 0;
+        }
+    }
+
+    &__week-day {
+        color: var(--color-text-hint);
+    }
+
+    &__day {
+        height: var(--cell-size);
+        color: var(--color-text-hint);
+        border-radius: 50%;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--color-border);
+        }
+
+        &.current-month {
+            color: var(--color-text);
+        }
+
+        &.selected {
+            background-color: var(--color-primary-alt);
+        }
+
+        &.today {
+            background-color: var(--color-primary);
+        }
+    }
+}

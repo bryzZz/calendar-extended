@@ -10,14 +10,16 @@ export const App: React.FC = () => {
     return (
         <div className='App'>
             <Header onClickBurgerMenu={setIsSidebarExpended} />
-            <main className='main'>
+            <div className='App__container'>
                 <Sidebar isExpended={isSidebarExpended} />
-                <Routes>
-                    <Route path='/week' element={<Week />} />
-                    <Route path='/month' element={<Month />} />
-                    <Route path='*' element={<Navigate to='/week' replace />} />
-                </Routes>
-            </main>
+                <main className='main'>
+                    <Routes>
+                        <Route path='/week' element={<Week />} />
+                        <Route path='/month' element={<Month />} />
+                        <Route path='*' element={<Navigate to='/week' replace />} />
+                    </Routes>
+                </main>
+            </div>
         </div>
     );
 };

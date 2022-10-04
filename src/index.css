@@ -15,7 +15,12 @@
     --color-primary-alt: #e74c3c70;
 
     --header-height: 3.5rem;
+    --main-height: calc(100vh - var(--header-height));
     --scroll-bar-width: 12px;
+    --sidebar-padding: 1rem;
+    --sidebar-width: calc(16rem + var(--sidebar-padding) * 2);
+
+    --transition-time: 0.3s;
 }
 
 body {
@@ -24,12 +29,15 @@ body {
     color: var(--color-text);
 }
 
-.App {
-    height: 100vh;
+.main {
+    width: 100%;
 }
 
-.main {
+.App__container {
     display: flex;
+    gap: 1rem;
+    width: 100%;
+    height: var(--main-height);
 }
 
 .logo {
