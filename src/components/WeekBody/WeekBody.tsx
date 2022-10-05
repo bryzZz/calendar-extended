@@ -5,7 +5,7 @@ import { calendar } from '../../store/Calendar';
 import { getArange } from '../../utils/helpers/getArange';
 import { WeekBodyHour } from '../WeekBodyHour/WeekBodyHour';
 
-import './style.css';
+import './style.scss';
 
 interface WeekBodyProps {}
 

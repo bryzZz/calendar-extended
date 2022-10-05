@@ -1,0 +1,40 @@
+.Month {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: var(--border-width);
+    background-color: var(--color-border);
+    border-left: var(--border-width) solid var(--color-border);
+
+    width: 100%;
+    height: 100%;
+
+    &__day {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--color-background);
+        padding-top: 0.3rem;
+
+        &.selected .Month__date {
+            background-color: var(--color-primary-alt);
+        }
+
+        &.today .Month__date {
+            background-color: var(--color-primary);
+        }
+    }
+
+    &__date {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        text-align: center;
+        padding-top: 0.3rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--color-border);
+        }
+    }
+}

@@ -1,0 +1,83 @@
+/* .WeekBody::-webkit-scrollbar-button {
+    background: #ccc;
+}
+*/
+.WeekBody {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    padding-bottom: 5rem;
+    max-height: 100%;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: var(--scroll-bar-width);
+    }
+    &::-webkit-scrollbar-track-piece {
+        background: var(--color-background);
+    }
+    &::-webkit-scrollbar-thumb {
+        background: var(--color-text);
+    }
+
+    &__days {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+    }
+    &__day {
+        display: grid;
+        grid-template-rows: repeat(24, 1fr);
+        border-left: var(--border-width) solid var(--color-border);
+        background-color: var(--color-border);
+    }
+    &__hours {
+        display: grid;
+        grid-template-rows: repeat(24, 1fr);
+    }
+    &__cell {
+        min-height: 3rem;
+        background-color: var(--color-background);
+        border-bottom: var(--border-width) solid var(--color-border);
+    }
+    &__hour {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        position: relative;
+        padding-right: 5px;
+        background-color: var(--color-background);
+        color: var(--color-text-hint);
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            height: var(--border-width);
+            width: 1rem;
+            background-color: var(--color-border);
+        }
+    }
+}
+
+.popup-content {
+    background: var(--color-background);
+    width: 300px;
+    height: 300px;
+    padding: 1rem;
+    border: var(--border-width) solid var(--color-border);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 2px 0px var(--color-text);
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    button {
+        padding: 0.3rem 0.5rem;
+        background-color: var(--color-primary);
+        cursor: pointer;
+    }
+}
+.popup-arrow {
+    display: none;
+}

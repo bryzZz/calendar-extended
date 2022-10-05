@@ -1,0 +1,58 @@
+.WeekHeader {
+    display: grid;
+    grid-template-columns: 3rem repeat(7, 1fr);
+    padding-right: var(--scroll-bar-width);
+
+    &__cell,
+    &__timezone {
+        position: relative;
+        display: flex;
+        background-color: var(--color-background);
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            background-color: var(--color-border);
+        }
+    }
+
+    &__cell {
+        justify-content: center;
+        gap: 5px;
+        font-size: 1rem;
+        text-align: center;
+        font-weight: 500;
+        padding: 0.5rem 0 0.5rem 0;
+        border-bottom: var(--border-width) solid var(--color-border);
+
+        &.selected {
+            color: var(--color-primary-alt);
+        }
+
+        &.today {
+            color: var(--color-primary);
+        }
+
+        &::after {
+            left: 0;
+            height: 1rem;
+            width: var(--border-width);
+        }
+    }
+
+    &__timezone {
+        align-items: flex-end;
+        justify-content: flex-end;
+        padding: 0 0.3rem 0.3rem 0;
+        font-size: 0.7rem;
+        color: var(--color-text-hint);
+
+        &::after {
+            right: 0;
+            height: var(--border-width);
+            width: 1rem;
+        }
+    }
+}

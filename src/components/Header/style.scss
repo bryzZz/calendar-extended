@@ -1,0 +1,21 @@
+.Header {
+    grid-column: span 2;
+    display: flex;
+    gap: 2rem;
+    padding: 0 1rem;
+    border-bottom: var(--border-width) solid var(--color-border);
+    height: var(--header-height);
+
+    &__burger {
+        font-size: 2rem;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--color-primary);
+        }
+
+        & > svg {
+            fill: currentColor;
+        }
+    }
+}

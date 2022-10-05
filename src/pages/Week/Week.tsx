@@ -4,7 +4,7 @@ import React from 'react';
 import { WeekBody } from '../../components/WeekBody/WeekBody';
 import { WeekHeader } from '../../components/WeekHeader/WeekHeader';
 
-import './style.css';
+import './style.scss';
 
 interface WeekProps {}
 

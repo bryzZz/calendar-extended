@@ -4,7 +4,7 @@ import React from 'react';
 
 import { calendar } from '../../store/Calendar';
 
-import './style.css';
+import './style.scss';
 
 interface WeekHeaderProps {}
 

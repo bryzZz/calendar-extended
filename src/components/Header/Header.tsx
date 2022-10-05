@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import './style.css';
+import './style.scss';
 
 interface HeaderProps {
     onClickBurgerMenu: React.Dispatch<React.SetStateAction<boolean>>;
@@ -25,7 +25,7 @@ export const Header: React.FC<HeaderProps> = ({ onClickBurgerMenu }) => {
 
     return (
         <header className='Header'>
-            <button className='burger' onClick={() => onClickBurgerMenu((p) => !p)}>
+            <button className='Header__burger' onClick={() => onClickBurgerMenu((p) => !p)}>
                 <svg
                     fill='none'
                     height='28'
