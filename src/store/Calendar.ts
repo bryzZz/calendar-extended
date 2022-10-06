@@ -15,9 +15,9 @@ class Calendar {
         makeAutoObservable(this);
     }
 
-    setSelectedDate(date: moment.Moment) {
+    setSelectedDate = (date: moment.Moment) => {
         this.selectedDate = date;
-    }
+    };
 
     incrementMonth = () => {
         if (this.currentMonth + 1 > 11) {
@@ -45,26 +45,32 @@ class Calendar {
         this.selectedDate = day;
     };
 
-    get currentWeekDays() {
-        return getArange(7).map((n) => moment(this.selectedDate).startOf('week').add(n, 'day'));
-    }
-
-    get days() {
-        const instance = moment([this.currentYear, this.currentMonth]);
+    getCalendarDays = (year: number, monthIndex: number) => {
+        const instance = moment([year, monthIndex]);
 
         const startDate = instance.startOf('month').subtract(instance.weekday(), 'day');
 
         return getArange(42).map((n) => {
             const day = moment(startDate).add(n, 'day');
+            const id = day.format('MM-DD-YYYY');
+            const isCurrentMonthDay = monthIndex === day.month();
+            const isToday = moment().isSame(day, 'day');
+            const isSelectedDay = day.isSame(this.selectedDate, 'day');
+            const date = day.date();
 
             return {
-                isToday: moment().isSame(day, 'day'),
-                isCurrentMonthDay: this.currentMonth === day.month(),
-                isSelectedDay: day.isSame(this.selectedDate, 'day'),
-                date: day.date(),
+                id,
+                isToday,
+                isCurrentMonthDay,
+                isSelectedDay,
+                date,
                 day
             };
         });
+    };
+
+    get currentWeekDays() {
+        return getArange(7).map((n) => moment(this.selectedDate).startOf('week').add(n, 'day'));
     }
 }
 

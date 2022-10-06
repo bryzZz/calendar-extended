@@ -108,6 +108,7 @@ export const Header: React.FC<HeaderProps> = ({ onClickBurgerMenu }) => {
             <select ref={selectRef}>
                 <option value='week'>Week</option>
                 <option value='month'>Month</option>
+                <option value='year'>Year</option>
             </select>
         </header>
     );

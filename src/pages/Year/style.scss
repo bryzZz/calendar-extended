@@ -1,0 +1,29 @@
+.Year {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+
+    padding: 1rem 0;
+
+    &::-webkit-scrollbar {
+        width: var(--scroll-bar-width);
+    }
+    &::-webkit-scrollbar-track-piece {
+        background: var(--color-background);
+    }
+    &::-webkit-scrollbar-thumb {
+        background: var(--color-text);
+    }
+
+    & > div {
+        flex: max(10rem, 100%/5 + 0.1%);
+
+        & > .Calendar {
+            width: 14rem;
+        }
+    }
+}

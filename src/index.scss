@@ -26,14 +26,9 @@ body {
     color: var(--color-text);
 }
 
-.main {
-    width: 100%;
-}
-
 .App__container {
     display: flex;
     gap: 1rem;
-    width: 100%;
     height: var(--main-height);
 }
 
